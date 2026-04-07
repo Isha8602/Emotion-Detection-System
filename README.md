@@ -1,35 +1,51 @@
-# Audio Detection System – CNN/LSTM + Flask
+# 🎤 Audio Based Emotion Detection System
 
-A real‑time audio event detection web application that uses a hybrid **CNN‑LSTM** deep learning model to classify environmental sounds. The backend is built with **Flask** (Python) and serves a simple web interface for file upload or live microphone recording.
+## 📌 Introduction
 
-**Current model accuracy: 61%** (baseline – see [Performance](#performance)).
+Human emotions play a vital role in communication. Understanding emotional cues from speech can significantly enhance human-computer interaction, mental health monitoring, customer service analytics, and many other domains. This project presents an **Audio Based Emotion Detection System** that classifies human emotions (e.g., happy, sad, angry, neutral, fearful, surprised, disgusted) from speech signals.
+
+The system leverages a hybrid **CNN (Convolutional Neural Network) + LSTM (Long Short-Term Memory)** architecture to capture both spatial (spectral) and temporal features from audio. A Flask backend serves the trained model, while a responsive frontend built with HTML, CSS, and JavaScript allows users to upload or record audio and receive real-time emotion predictions.
 
 ---
 
-## 📋 Table of Contents
+## 🧠 What is this project about?
 
-- [Features](#features)
-- [System Architecture](#system-architecture)
-- [Model Details](#model-details)
-- [Performance](#performance)
-- [Project Structure](#project-structure)
-- [Installation & Setup](#installation--setup)
-- [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
-- [Frontend Usage](#frontend-usage)
-- [Future Improvements](#future-improvements)
-- [License](#license)
+This project is an end-to-end machine learning web application that:
+
+- **Accepts audio input** (WAV format) from a user via file upload or microphone recording.
+- **Preprocesses** the audio by extracting **Mel-frequency cepstral coefficients (MFCCs)** – a compact representation of the audio spectrum that mimics human auditory perception.
+- **Feeds** the processed features into a pre-trained **CNN-LSTM model**.
+  - **CNN layers** learn local patterns and high-level feature maps from MFCC spectrograms.
+  - **LSTM layers** capture long-term dependencies and sequential relationships across time frames.
+- **Outputs** the predicted emotion label with confidence scores.
+- **Visualizes** the result on a clean, interactive web dashboard.
+
+The system bridges the gap between deep learning research and practical deployment, demonstrating how speech emotion recognition (SER) can be made accessible through a browser interface – even with moderate accuracy, providing a baseline for further improvements.
 
 ---
 
 ## ✨ Features
 
-- **Upload audio file** (WAV, MP3, OGG) for detection.
-- **Live microphone recording** (Web Audio API) with real‑time classification.
-- **Hybrid CNN‑LSTM model** – captures both local spectral patterns and long‑term temporal dependencies.
-- **Flask REST API** – easy integration with other applications.
-- **Visual feedback** – shows predicted class with confidence score and spectrogram preview.
+- 🎙️ Upload audio file (`.wav`) or record live audio from microphone
+- 🧹 Automatic noise reduction and silence trimming
+- 📊 Real-time emotion prediction with probability bars
+- 📈 Visual waveform preview of uploaded/recorded audio
+- 🖥️ Responsive UI (mobile & desktop friendly)
+- ⚡ Fast inference using Flask + pre-trained model
+- 🔁 REST API endpoint for programmatic access
 
 ---
 
-## 🧠 System Architecture
+## 🛠️ Tech Stack
+
+| Layer       | Technology                                                                 |
+|-------------|----------------------------------------------------------------------------|
+| **ML Model**| TensorFlow / Keras – CNN + LSTM                                            |
+| **Backend** | Flask (Python)                                                             |
+| **Frontend**| HTML5, CSS3, JavaScript (Vanilla) + Web Audio API / RecordRTC              |
+| **Audio Processing** | Librosa (MFCC extraction), NumPy, SciPy                          |
+| **Deployment** (optional) | Gunicorn, Docker, or any cloud platform (AWS, Heroku, etc.)    |
+
+---
+
+## 📂 Project Structure
