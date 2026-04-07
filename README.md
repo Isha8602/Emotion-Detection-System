@@ -47,5 +47,3 @@ The system bridges the gap between deep learning research and practical deployme
 | **Deployment** (optional) | Gunicorn, Docker, or any cloud platform (AWS, Heroku, etc.)    |
 
 ---
-
-## 📂 Project Structure
